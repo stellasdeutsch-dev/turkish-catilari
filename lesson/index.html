@@ -118,6 +118,78 @@ section[id],[id]{scroll-margin-top:72px}
 .city i{transition:box-shadow .4s}
 .city.lit i{box-shadow:0 0 0 4px var(--bg),0 0 34px 8px rgba(242,201,108,.9)}
 .city.lit b{color:var(--g1)}
+/* barber scene */
+.barber{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:14px;padding:20px 22px 16px;margin-bottom:18px;overflow:hidden}
+.pole{position:relative;width:26px;height:118px;border-radius:13px;overflow:hidden;background:repeating-linear-gradient(-45deg,#f1f3fb 0 9px,#e0344d 9px 18px,#f1f3fb 18px 27px,#2f7dff 27px 36px);background-size:100% 51px;animation:pole 1.6s linear infinite;box-shadow:inset -6px 0 10px rgba(0,0,0,.35),0 0 24px rgba(98,195,255,.35)}
+.pole:before,.pole:after{content:"";position:absolute;left:-2px;right:-2px;height:12px;background:var(--goldg)}
+.pole:before{top:0}.pole:after{bottom:0}
+@keyframes pole{to{background-position:0 51px}}
+.scis{position:relative;height:130px;display:grid;place-items:center}
+.scis svg{width:120px;height:120px;overflow:visible}
+.scis .bA,.scis .bB{transform-box:view-box;transform-origin:60px 60px}
+.scis .bA{animation:snipA 1s ease-in-out infinite}.scis .bB{animation:snipB 1s ease-in-out infinite}
+@keyframes snipA{0%,100%{transform:rotate(-13deg)}45%{transform:rotate(2deg)}}
+@keyframes snipB{0%,100%{transform:rotate(13deg)}45%{transform:rotate(-2deg)}}
+.hair{position:absolute;left:62%;top:40%;width:2px;height:12px;border-radius:2px;background:#c9a36a;animation:hair 1.8s linear infinite;opacity:0}
+@keyframes hair{0%{transform:translate(0,0) rotate(0);opacity:0}10%{opacity:1}100%{transform:translate(var(--dx,10px),70px) rotate(var(--r,160deg));opacity:0}}
+.cay{position:relative;width:60px;height:118px}
+.cay svg{position:absolute;bottom:0;left:0;width:60px;height:96px}
+.steam{position:absolute;bottom:88px;width:6px;height:24px;border-radius:6px;background:linear-gradient(180deg,transparent,rgba(220,235,255,.55));filter:blur(2px);animation:steam 2.6s ease-in infinite;opacity:0}
+@keyframes steam{0%{transform:translate(0,10px) scaleY(.6);opacity:0}30%{opacity:.8}100%{transform:translate(var(--sx,6px),-26px) scaleY(1.3);opacity:0}}
+.barber .cap{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:10px;border-top:1px solid var(--line);padding-top:12px;flex-wrap:wrap}
+.barber .cap .tk{font-size:26px}
+.barber .cap small{color:var(--mute);font-size:12.5px}
+/* 3D stack */
+.stack3d{position:relative;height:270px;perspective:900px;margin-bottom:10px;--gap:26px;overflow:hidden}
+.stack3d .rot{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(60deg) rotateZ(-30deg);animation:spin3d 22s linear infinite}
+@keyframes spin3d{from{transform:rotateX(60deg) rotateZ(0)}to{transform:rotateX(60deg) rotateZ(360deg)}}
+.slab{position:absolute;left:50%;top:50%;width:160px;height:160px;margin:-80px 0 0 -80px;border-radius:18px;display:grid;place-items:center;transform:translateZ(calc(var(--i) * var(--gap) - 50px));border:1.5px solid currentColor;background:radial-gradient(circle at 30% 25%,rgba(255,255,255,.18),rgba(10,18,60,.55) 70%);box-shadow:0 0 30px -6px currentColor,inset 0 0 26px -10px currentColor}
+.slab span{font:400 34px/1 var(--serif);color:#fff;text-shadow:0 0 14px currentColor}
+.stack3d .lg{position:absolute;right:0;bottom:0;font-size:11px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase}
+/* news ticker */
+.ticker{display:flex;align-items:stretch;margin-top:34px;border-radius:12px;overflow:hidden;border:1px solid rgba(255,77,109,.45);background:#070b22;box-shadow:0 0 40px -16px rgba(255,77,109,.6)}
+.ticker .lb{flex:none;display:flex;align-items:center;gap:7px;padding:0 12px;background:linear-gradient(180deg,#ff4d6d,#b8102f);color:#fff;font:800 11px/1 var(--sans);letter-spacing:.14em}
+.ticker .lb i{width:8px;height:8px;border-radius:50%;background:#fff;animation:blink 1s steps(2) infinite}
+@keyframes blink{50%{opacity:.15}}
+.ticker .vp{overflow:hidden;flex:1;min-width:0}
+.ticker .tr3{display:flex;width:max-content;animation:mq 46s linear infinite}
+.ticker:hover .tr3{animation-play-state:paused}
+.ticker button{flex:none;padding:11px 18px;background:none;border:0;border-right:1px solid var(--line);text-align:left;white-space:nowrap}
+.ticker button b{display:block;font:400 19px/1.1 var(--serif);color:var(--ink);font-weight:400}
+.ticker button b em{font-style:normal;color:var(--p)}
+.ticker button small{display:block;font-size:11.5px;color:var(--mute)}
+/* mirror shine */
+.mirror{position:relative;overflow:hidden}
+.mirror:after{content:"";position:absolute;inset:-50% -20%;background:linear-gradient(105deg,transparent 44%,rgba(190,230,255,.16) 50%,transparent 56%);animation:msh 4.5s ease-in-out infinite;pointer-events:none}
+@keyframes msh{0%,30%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+/* WhatsApp */
+.btn.wa{background:linear-gradient(180deg,#34e27f 0%,#1bb85a 55%,#11963f 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),inset 0 0 0 1px rgba(140,255,190,.45),0 12px 34px -10px rgba(37,211,102,.9)}
+.price .btn.wa{margin-top:10px}
+.wachat{display:grid;gap:0;overflow:hidden;margin-top:24px}
+.wa-hd{display:flex;align-items:center;gap:10px;padding:12px 14px;background:#0b1a2a;border-bottom:1px solid rgba(37,211,102,.25)}
+.wa-hd .av{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--goldg);color:#2b1a04;font:400 16px/1 var(--serif)}
+.wa-hd b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+.wa-hd small{color:#5fe39a;font-size:12px}
+.wa-hd .wa-ic{margin-left:auto;width:26px;height:26px;color:#34e27f}
+.wa-body{display:grid;gap:10px;padding:18px 14px;min-height:150px;align-content:end;background:radial-gradient(circle at 20% 20%,rgba(37,211,102,.06),transparent 50%),repeating-linear-gradient(45deg,rgba(255,255,255,.015) 0 10px,transparent 10px 20px),#071320}
+.msg{max-width:86%;padding:10px 12px;border-radius:14px;font-size:15px;line-height:1.4}
+.msg.out{justify-self:end;background:#0f5a3a;color:#eafff2;border-bottom-right-radius:4px}
+.msg.out .tick{font-style:normal;font-size:11px;margin-left:8px;color:rgba(234,255,242,.5);transition:color .4s}
+.msg.out .tick.read{color:#53bdeb}
+.msg.in{justify-self:start;background:#1b2a3a;border-bottom-left-radius:4px;display:flex;gap:5px;padding:13px 14px}
+.msg.in i{width:7px;height:7px;border-radius:50%;background:#9fb3c8;animation:dot 1.2s ease-in-out infinite}
+.msg.in i:nth-child(2){animation-delay:.15s}.msg.in i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-5px);opacity:1}}
+.caret{display:inline-block;width:2px;height:1em;background:#eafff2;vertical-align:-2px;margin-left:1px;animation:blink .8s steps(2) infinite}
+.wa-cta{display:grid;gap:12px;padding:16px 14px 18px}
+.wa-cta p{margin:0;font-size:14.5px}
+.dock .wab{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;flex:none;background:linear-gradient(180deg,#34e27f,#11963f);color:#fff;box-shadow:0 8px 20px -8px rgba(37,211,102,.9)}
+.dock .wab .ic{width:22px;height:22px}
+/* price spinning border */
+@property --ang{syntax:'<angle>';inherits:false;initial-value:0deg}
+.price{isolation:isolate}
+.price:before{content:"";position:absolute;inset:0;border-radius:inherit;padding:2px;background:conic-gradient(from var(--ang),#8d5a1c,#fff3cc,#c58c37,#62c3ff,#8d5a1c);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);animation:spinb 5s linear infinite;pointer-events:none}
+@keyframes spinb{to{--ang:360deg}}
 .btn.ghost{background:transparent;box-shadow:inset 0 0 0 1px rgba(242,201,108,.55);color:var(--g1)}
 .btn.sm{padding:12px 16px;font-size:12px}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px}
@@ -523,6 +595,8 @@ html.gs .rv{transition:none}
   .toggles{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media (min-width:980px){
+  .wagrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+  .stack3d{height:320px}
   section{padding-block:110px}
   .wrap{padding-inline:28px}
   .sh{grid-template-columns:auto minmax(80px,1fr) minmax(0,26em);align-items:center;gap:28px}
@@ -549,7 +623,7 @@ html.gs .rv{transition:none}
   .top .pill{padding:9px 18px}
 }
 @media (max-width:979px){ .two > * + *{margin-top:16px} .pricewrap > * + *{margin-top:20px} }
-@media (prefers-reduced-motion:reduce){ .film .track,.mega .t1,.portal svg.pt,.gold,.gt,.gt .wd,.sky:after,.btn.pulse:after{animation:none} html{scroll-behavior:auto} .plq .in{transition:none} }
+@media (prefers-reduced-motion:reduce){ .pole,.scis .bA,.scis .bB,.hair,.steam,.stack3d .rot,.ticker .tr3,.ticker .lb i,.mirror:after,.price:before,.msg.in i,.caret,.film .track,.mega .t1,.portal svg.pt,.gold,.gt,.gt .wd,.sky:after,.btn.pulse:after{animation:none} html{scroll-behavior:auto} .plq .in{transition:none} }
 </style>
 
 </head>
@@ -566,6 +640,7 @@ html.gs .rv{transition:none}
   <symbol id="medal" viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="url(#gg2)" stroke="#5a3a0c" stroke-width="1.2"/><circle cx="20" cy="20" r="12.5" fill="#1c3f9e" stroke="#f6d589" stroke-width="1.4"/><path d="M14 20.5l4 4 8-8.5" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   <symbol id="chipT" viewBox="0 0 100 92"><path d="M50 4 96 86c-30 6-62 6-92 0Z" fill="url(#gg2)" stroke="#6e4512" stroke-width="2"/><path d="M50 18 80 76c-20 3-40 3-60 0Z" fill="none" stroke="#fff3cc" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="2 5"/></symbol>
   <symbol id="ribbon" viewBox="0 0 120 60"><path d="M4 30C24 4 48 4 60 22s38 26 56 0v20c-18 26-44 20-56 2S24 22 4 50Z" fill="url(#gg2)" stroke="#6e4512" stroke-width="1.5"/><path d="M14 30c14-12 30-12 40 2M66 34c12 10 30 10 40-4" stroke="#fff3cc" stroke-opacity=".6" stroke-width="2" fill="none" stroke-dasharray="4 4"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path d="M12 2.6a9.4 9.4 0 0 0-8.1 14.1L2.6 21.4l4.8-1.3A9.4 9.4 0 1 0 12 2.6Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.6 7.4c.3-.3.8-.3 1 .1l.9 1.9c.1.3 0 .6-.2.8l-.6.6c.6 1.3 1.6 2.4 3 3l.6-.6c.2-.2.5-.3.8-.2l1.9.9c.4.2.4.7.1 1-.9 1-2.2 1.2-3.4.6a10 10 0 0 1-4.8-4.8c-.5-1.2-.3-2.5.7-3.3Z" fill="currentColor"/></symbol>
   <symbol id="i-megaphone" viewBox="0 0 24 24"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></symbol>
 <symbol id="i-stamp" viewBox="0 0 24 24"><path d="M5 22h14"/><path d="M19.27 13.73A2.5 2.5 0 0 0 17.5 13h-11A2.5 2.5 0 0 0 4 15.5V17a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-1.5c0-.66-.26-1.3-.73-1.77Z"/><path d="M14 13V8.5C14 7 15 7 15 5a3 3 0 0 0-3-3c-1.66 0-3 1-3 3s1 2 1 3.5V13"/></symbol>
 <symbol id="i-scan-face" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01"/><path d="M15 9h.01"/></symbol>
@@ -709,6 +784,26 @@ html.gs .rv{transition:none}
       <i class="rule"></i>
       <p class="sd">Как я неделю ходил с кличкой из-за трёх букв. Листай вбок.</p>
     </div>
+    <div class="card barber rv" aria-hidden="true">
+      <div class="pole"></div>
+      <div class="scis">
+        <svg viewBox="0 0 120 120">
+          <g class="bA"><path d="M60 60 112 38l2 6Z" fill="url(#gg2)" stroke="#6e4512" stroke-width="1"/><path d="M60 60 44 69" stroke="url(#gg2)" stroke-width="6" stroke-linecap="round"/><circle cx="33" cy="76" r="12" fill="none" stroke="url(#gg2)" stroke-width="5.5"/></g>
+          <g class="bB"><path d="M60 60 112 82l2-6Z" fill="url(#gg2)" stroke="#6e4512" stroke-width="1"/><path d="M60 60 44 51" stroke="url(#gg2)" stroke-width="6" stroke-linecap="round"/><circle cx="33" cy="44" r="12" fill="none" stroke="url(#gg2)" stroke-width="5.5"/></g>
+          <circle cx="60" cy="60" r="4" fill="#fff3cc" stroke="#6e4512"/>
+        </svg>
+        <i class="hair" style="--dx:-14px;--r:120deg;animation-delay:0s"></i><i class="hair" style="--dx:12px;--r:210deg;animation-delay:.45s"></i><i class="hair" style="--dx:-4px;--r:300deg;animation-delay:.9s"></i><i class="hair" style="--dx:20px;--r:90deg;animation-delay:1.3s"></i><i class="hair" style="--dx:-22px;--r:250deg;animation-delay:1.6s"></i>
+      </div>
+      <div class="cay">
+        <span class="steam" style="left:18px;animation-delay:0s"></span><span class="steam" style="left:28px;--sx:-6px;animation-delay:.9s"></span><span class="steam" style="left:36px;animation-delay:1.7s"></span>
+        <svg viewBox="0 0 60 96"><defs><linearGradient id="tea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2582a"/><stop offset="1" stop-color="#7a1d08"/></linearGradient></defs>
+          <path d="M16 10C12 26 22 36 19 52c-2 10 2 20 11 22 9-2 13-12 11-22-3-16 7-26 3-42Z" fill="rgba(200,230,255,.08)" stroke="rgba(220,235,255,.7)" stroke-width="1.6"/>
+          <path d="M17.5 24c1 8 4 14 2.6 28-1.3 9 2 18 9.9 20 7.9-2 11.2-11 9.9-20-1.4-14 1.6-20 2.6-28Z" fill="url(#tea)" opacity=".9"/>
+          <ellipse cx="30" cy="84" rx="26" ry="6" fill="url(#gg2)"/><ellipse cx="30" cy="82" rx="18" ry="3" fill="#3a2306" opacity=".35"/>
+        </svg>
+      </div>
+      <div class="cap"><span class="tk">Saçımı kes<span class="c">tir</span>dim.</span><small>Мехмет · 40 минут · бесплатный çay</small></div>
+    </div>
     <div class="cards">
       <article class="card post rv">
         <p>У меня был год TÖMER. Подготовка перед универом. Анталья, сорок градусов, пять пар турецкого в день.</p>
@@ -778,6 +873,16 @@ html.gs .rv{transition:none}
         <div class="fl"><span class="tag">Время<i class="t">geçmiş</i></span><div><div class="w"><span class="k">tanı</span><span class="r">ş</span><span class="c">tır</span><span class="p">ıl</span><span class="t">dı</span></div><small>его познакомили</small></div></div>
       </div>
       <div>
+        <div class="stack3d" id="stack3d" aria-hidden="true">
+          <div class="rot">
+            <div class="slab k" style="--i:0"><span>tanı</span></div>
+            <div class="slab r" style="--i:1"><span>ş</span></div>
+            <div class="slab c" style="--i:2"><span>tır</span></div>
+            <div class="slab p" style="--i:3"><span>ıl</span></div>
+            <div class="slab t" style="--i:4"><span>dı</span></div>
+          </div>
+          <span class="lg">голограмма слова</span>
+        </div>
         <p class="punch rv">Читать такие слова надо <em>снизу вверх</em>. Сначала фундамент. Потом надстройки.</p>
         <p class="rv" style="margin:16px 0 20px">Пять этажей. Одно слово. Никаких «его», «кто-то», «с кем-то». Всё уже внутри глагола.</p>
         <div class="cta-row rv">
@@ -899,6 +1004,10 @@ html.gs .rv{transition:none}
       <div><div class="eyebrow"><i></i>03 · edilgen çatı</div><h2 class="gt">Протокол</h2></div>
       <i class="rule"></i>
       <p class="sd">Сделано. Кто сделал, неизвестно или неважно. Язык новостей, табличек и <b>отключений света в июле</b>.</p>
+    </div>
+    <div class="ticker rv" style="margin:0 0 22px">
+      <span class="lb"><i></i>SON DAKİKA</span>
+      <div class="vp"><div class="tr3"><button type="button" data-say="Elektrik kesildi"><b>Elektrik kesil<em>di</em></b><small>Свет отключили</small></button><button type="button" data-say="Yeni köprü açıldı"><b>Yeni köprü açıl<em>dı</em></b><small>Открыли новый мост</small></button><button type="button" data-say="Maç ertelendi"><b>Maç ertelen<em>di</em></b><small>Матч перенесли</small></button><button type="button" data-say="Hırsız yakalandı"><b>Hırsız yakalan<em>dı</em></b><small>Вора поймали</small></button><button type="button" data-say="Uçuşlar durduruldu"><b>Uçuşlar durdurul<em>du</em></b><small>Рейсы остановили</small></button><button type="button" data-say="Toplantı iptal edildi"><b>Toplantı iptal edil<em>di</em></b><small>Встречу отменили</small></button><button type="button" data-say="Plajlar temizlendi"><b>Plajlar temizlen<em>di</em></b><small>Пляжи почистили</small></button><button type="button" data-say="Müze yeniden açıldı"><b>Müze yeniden açıl<em>dı</em></b><small>Музей снова открыли</small></button><button type="button" data-say="Elektrik kesildi"><b>Elektrik kesil<em>di</em></b><small>Свет отключили</small></button><button type="button" data-say="Yeni köprü açıldı"><b>Yeni köprü açıl<em>dı</em></b><small>Открыли новый мост</small></button><button type="button" data-say="Maç ertelendi"><b>Maç ertelen<em>di</em></b><small>Матч перенесли</small></button><button type="button" data-say="Hırsız yakalandı"><b>Hırsız yakalan<em>dı</em></b><small>Вора поймали</small></button><button type="button" data-say="Uçuşlar durduruldu"><b>Uçuşlar durdurul<em>du</em></b><small>Рейсы остановили</small></button><button type="button" data-say="Toplantı iptal edildi"><b>Toplantı iptal edil<em>di</em></b><small>Встречу отменили</small></button><button type="button" data-say="Plajlar temizlendi"><b>Plajlar temizlen<em>di</em></b><small>Пляжи почистили</small></button><button type="button" data-say="Müze yeniden açıldı"><b>Müze yeniden açıl<em>dı</em></b><small>Музей снова открыли</small></button></div></div>
     </div>
     <div class="lab">
       <div class="card pad">
@@ -1417,6 +1526,39 @@ function xInit(){
     }
   }
 
+  /* ---------- 3D stack explode on scroll ---------- */
+  if(G && $('#stack3d')) G.fromTo('#stack3d', {'--gap':'6px'}, {'--gap':'40px', ease:'none', scrollTrigger:{trigger:'#stack3d', start:'top 90%', end:'bottom 35%', scrub:.5}});
+
+  /* ---------- auto-advance carousels ---------- */
+  function autoCarousel(el, every){
+    if(!el || reduce) return; var t = 0, user = false;
+    el.addEventListener('pointerdown', function(){ user = true; }, {passive:true});
+    el.addEventListener('wheel', function(){ user = true; }, {passive:true});
+    whenVisible(el, function(){ clearInterval(t); t = setInterval(function(){
+      if(user || el.scrollWidth <= el.clientWidth + 4) return;
+      var w = el.firstElementChild.getBoundingClientRect().width + 14, end = el.scrollWidth - el.clientWidth - 4;
+      el.scrollTo({left: el.scrollLeft + w >= end + 4 ? 0 : el.scrollLeft + w, behavior:'smooth'});
+    }, every); }, function(){ clearInterval(t); }, .4);
+  }
+  autoCarousel($('.phones'), 2600); autoCarousel($('.reviews'), 3400); autoCarousel($('.depts'), 3000);
+
+  /* ---------- WhatsApp chat typing ---------- */
+  (function(){
+    var box = $('#wachat'); if(!box || reduce) return;
+    var txt = $('#waTxt'), tick = $('#waTick'), typing = $('#waTyping'), full = txt.textContent, played = false;
+    whenVisible(box, function(){
+      if(played) return; played = true;
+      txt.innerHTML = '<span class="caret"></span>'; tick.classList.remove('read'); typing.style.visibility = 'hidden';
+      var i = 0;
+      (function step(){
+        i++; txt.innerHTML = full.slice(0, i) + (i < full.length ? '<span class="caret"></span>' : '');
+        if(i < full.length) return setTimeout(step, 38 + Math.random()*40);
+        setTimeout(function(){ tick.classList.add('read'); }, 500);
+        setTimeout(function(){ typing.style.visibility = 'visible'; if(G) G.fromTo(typing, {scale:.4, y:10}, {scale:1, y:0, duration:.5, ease:'back.out(3)', transformOrigin:'0 100%'}); FX.el(tick, 8, ['#53bdeb','#34e27f','#ffffff'], 2.4); }, 1100);
+      })();
+    }, null, .5);
+  })();
+
   /* ---------- tower ---------- */
   function buildTower(){
     if(!G) return;
@@ -1805,7 +1947,7 @@ function xInit(){
     var dock = $('#dock'), hero = $('.hero'), priceSec = $('#price');
     if(dock && 'IntersectionObserver' in window){
       var pastHero = false, atPrice = false;
-      function upd(){ var s = pastHero && !atPrice; dock.classList.toggle('show', s); dock.setAttribute('aria-hidden', !s); $('a', dock).tabIndex = s ? 0 : -1; }
+      function upd(){ var s = pastHero && !atPrice; dock.classList.toggle('show', s); dock.setAttribute('aria-hidden', !s); $$('a', dock).forEach(function(a){ a.tabIndex = s ? 0 : -1; }); }
       new IntersectionObserver(function(es){ es.forEach(function(en){ pastHero = !en.isIntersecting && en.boundingClientRect.top < 0; upd(); }); }).observe(hero);
       new IntersectionObserver(function(es){ es.forEach(function(en){ atPrice = en.isIntersecting; upd(); }); }).observe(priceSec);
     }
